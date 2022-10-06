@@ -1,0 +1,15 @@
+/* import global styles, or don't! */
+@import url(/public/styles/styles.css);
+
+.wrapper {
+  background: pink;
+  padding: 20px 0;
+}
+
+slot[name="title"] {
+  color: red;
+}
+
+slot[name="description"] {
+  color: blue;
+}
