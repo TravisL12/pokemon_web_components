@@ -1,8 +1,5 @@
-const templateMarkup = `
-  <link
-    rel="stylesheet"
-    href="public/components/pokemonContainer/styles.css"
-  />
+const templateMarkup = html`
+  <link rel="stylesheet" href="public/components/pokemonContainer/styles.css" />
   <div class="wrapper">
     <h1><slot name="title">Pokemon Game in Template!</slot></h1>
     <h3><slot name="description">Describe me Template!</slot></h3>

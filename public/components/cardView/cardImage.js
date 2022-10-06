@@ -1,8 +1,5 @@
-const templateMarkup = `
-  <link
-    rel="stylesheet"
-    href="public/components/cardView/styles.css"
-  />
+const templateMarkup = html`
+  <link rel="stylesheet" href="public/components/cardView/styles.css" />
   <div id="image-container"></div>
 `;
 
