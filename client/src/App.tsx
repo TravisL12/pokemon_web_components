@@ -34,8 +34,8 @@ function App() {
         {cards.map((card) => {
           return (
             <div key={card.id}>
-              <div>{card.name}</div>
-              <div>
+              <div className="card-name">{card.name}</div>
+              <div className="img-container">
                 <img src={card.images.small} />
               </div>
             </div>
