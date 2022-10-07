@@ -1,4 +1,4 @@
-const templateMarkup = html`
+const templateMarkup = /*html*/ `
   <link rel="stylesheet" href="public/components/cardView/styles.css" />
   <div class="card-wrapper">
     <h1><slot name="pokemon-name">Pikachu!</slot></h1>
