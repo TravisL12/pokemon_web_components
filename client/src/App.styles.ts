@@ -6,6 +6,7 @@ export const SCardList = styled.div`
   gap: 10px;
   padding: 20px;
   .card-name {
+    font-weight: bold;
     text-align: center;
   }
   .img-container {
