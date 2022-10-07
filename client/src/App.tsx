@@ -29,6 +29,7 @@ function App() {
         />
         <button onClick={fetchCards}>Get card!</button>
       </div>
+      <div>Found {cards.length}</div>
       <SCardList>
         {cards.map((card) => {
           return (
