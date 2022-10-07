@@ -6,7 +6,7 @@ const templateMarkup = /*html*/ `
   </div>
 
   <!-- I can ADD components in a component!!!! -->
-  <card-view><span slot="pokemon-name">Bulbasuar!</span></card-view>
+  <card-view name="" image=""></card-view>
   <button id='get-card'>Get Card!</button>
 `;
 
@@ -19,9 +19,15 @@ class PokemonContainer extends HTMLElement {
     shadow.appendChild(template.content.cloneNode(true));
 
     shadow.querySelector("#get-card").addEventListener("click", async () => {
-      const resp = await fetch("http://0.0.0.0:1212/cards");
-      const data = await resp.json();
-      console.log(data);
+      const req = await fetch("http://0.0.0.0:1212/cards");
+      const resp = await req.json();
+      const randIdx = Math.floor(Math.random() * resp.data.length);
+      const firstItem = resp.data[randIdx];
+      console.log(firstItem);
+      shadow.querySelector("card-view").setAttribute("name", firstItem.name);
+      shadow
+        .querySelector("card-view")
+        .setAttribute("image", firstItem.images.small);
     });
   }
 }

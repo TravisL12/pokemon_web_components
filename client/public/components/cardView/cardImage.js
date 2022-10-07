@@ -4,16 +4,26 @@ const templateMarkup = /*html*/ `
 `;
 
 class CardImage extends HTMLElement {
+  static get observedAttributes() {
+    return ["img-src"];
+  }
+
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: "open" });
+    this.shadow = this.attachShadow({ mode: "open" });
     const template = document.createElement("template");
     template.innerHTML = templateMarkup;
 
     const img = document.createElement("img");
-    img.src = this.getAttribute("imgSrc");
+    img.src = this.getAttribute("img-src");
     template.content.getElementById("image-container").appendChild(img);
-    shadow.appendChild(template.content.cloneNode(true));
+    this.shadow.appendChild(template.content.cloneNode(true));
+  }
+
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === "img-src" && newValue) {
+      this.shadow.querySelector("img").setAttribute("src", newValue);
+    }
   }
 }
 

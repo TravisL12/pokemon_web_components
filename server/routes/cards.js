@@ -11,7 +11,7 @@ router.get("/", async function (req, res, next) {
       headers: { "X-Api-Key": API_KEY },
     }
   );
-  const data = await fetchCard.json();
+  const { data } = await fetchCard.json();
   res.json({ msg: "respond with a resource", data });
 });
 
