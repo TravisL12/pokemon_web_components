@@ -1,20 +1,27 @@
 var express = require("express");
+const { findCardsByQueries } = require("pokemon-tcg-sdk-typescript/dist/sdk");
 var router = express.Router();
 
-const API_KEY = process.env.API_KEY;
+const buildQuery = (queries) => {
+  const { name, subtype } = queries;
+  let query = ``;
+  if (name) {
+    query += `name:${name}`;
+  }
+  if (subtype) {
+    query += ` subtypes:${subtype}`;
+  }
+  return query;
+};
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
-  const { name } = req.query;
   try {
-    const fetchCard = await fetch(
-      `https://api.pokemontcg.io/v2/cards?q=name:${name}&page=1`,
-      {
-        headers: { "X-Api-Key": API_KEY },
-      }
-    );
-    const resp = await fetchCard.json();
-    res.json({ msg: `Page of ${name} results`, results: resp.data });
+    const query = buildQuery(req.query);
+    const resp = await findCardsByQueries({
+      q: query,
+    });
+    res.json({ msg: `Page results`, results: resp });
   } catch (err) {
     console.log(err);
     next(err);

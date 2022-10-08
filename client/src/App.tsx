@@ -7,6 +7,7 @@ import Card from "./Card";
 
 function App() {
   const [nameQuery, setNameQuery] = useState<string>("arceus");
+  const [subtypeQuery, setSubtypeQuery] = useState<string>("vmax");
   const [cards, setCards] = useState<ICard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -17,7 +18,7 @@ function App() {
   const fetchCards = async () => {
     setLoading(true);
     const req = await axios.get(`http://0.0.0.0:1212/cards`, {
-      params: { name: nameQuery },
+      params: { name: nameQuery, subtype: subtypeQuery },
     });
     setLoading(false);
     if (req.data.results) {
@@ -35,6 +36,12 @@ function App() {
             placeholder="Name search"
             value={nameQuery}
             onChange={(event) => setNameQuery(event.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Subtype"
+            value={subtypeQuery}
+            onChange={(event) => setSubtypeQuery(event.target.value)}
           />
           <button onClick={fetchCards}>Get card!</button>
         </div>
