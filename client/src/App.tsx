@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.styles.ts";
 import { SCardList, SSearchHeader } from "./App.styles";
 import { ICard } from "./tcgTypes/card";
+import Card from "./Card";
 
 function App() {
-  const [nameQuery, setNameQuery] = useState<string>("");
+  const [nameQuery, setNameQuery] = useState<string>("arceus");
   const [cards, setCards] = useState<ICard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    fetchCards();
+  }, []);
 
   const fetchCards = async () => {
     setLoading(true);
@@ -38,14 +43,7 @@ function App() {
       {cards.length > 0 && (
         <SCardList>
           {cards.map((card) => {
-            return (
-              <div key={card.id}>
-                <div className="card-name">{card.name}</div>
-                <div className="img-container">
-                  <img src={card.images.small} />
-                </div>
-              </div>
-            );
+            return <Card key={card.id} card={card} />;
           })}
         </SCardList>
       )}

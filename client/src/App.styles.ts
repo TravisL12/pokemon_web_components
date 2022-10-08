@@ -12,26 +12,53 @@ export const SCardList = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+`;
 
-  background: lime;
+export const SCard = styled.div`
+  background: #83ff83;
   border-radius: 4px;
   padding: 10px;
-  margin: 20px;
+  width: 250px;
 
-  .card-name {
-    font-weight: bold;
-    text-align: center;
-  }
   .img-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 350px;
-    width: 250px;
+    height: 300px;
 
     img {
       max-height: 100%;
       max-width: 100%;
     }
+  }
+`;
+
+export const SCardInfo = styled.div`
+  .flavor-text {
+    font-size: 13px;
+  }
+`;
+
+export const SCardTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  .series-logo {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  .card-name {
+    font-weight: bold;
   }
 `;
