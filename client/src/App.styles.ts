@@ -14,11 +14,11 @@ export const SCardList = styled.div`
   gap: 10px;
 `;
 
-export const SCard = styled.div`
-  background: #83ff83;
+export const SCard = styled.div<{ bgUrl: string }>`
+  position: relative;
   border-radius: 4px;
   padding: 10px;
-  width: 250px;
+  width: 350px;
 
   .img-container {
     display: flex;
@@ -33,7 +33,27 @@ export const SCard = styled.div`
   }
 `;
 
+export const SCardBg = styled.div<{ bgUrl: string }>`
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-image: url(${(props) => props.bgUrl});
+`;
+
 export const SCardInfo = styled.div`
+  background: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin: 10px 30px;
+  padding: 4px;
   .flavor-text {
     font-size: 13px;
   }

@@ -1,9 +1,10 @@
-import { SCard, SCardInfo, SCardTitle } from "./App.styles";
+import { SCard, SCardInfo, SCardTitle, SCardBg } from "./App.styles";
 import { ICard } from "./tcgTypes/card";
 
 function Card({ card }: { card: ICard }) {
   return (
-    <SCard>
+    <SCard bgUrl={card.images.small}>
+      <SCardBg bgUrl={card.images.small}></SCardBg>
       <SCardTitle>
         <div className="series-logo">
           <img
