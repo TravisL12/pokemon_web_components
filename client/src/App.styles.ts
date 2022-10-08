@@ -47,7 +47,10 @@ export const SCardBg = styled.div<{ bgUrl: string }>`
   z-index: -1;
   background-image: url(${(props) => props.bgUrl});
 `;
-
+export const SSearch = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 export const SCardInfo = styled.div`
   background: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
