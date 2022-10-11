@@ -1,4 +1,10 @@
-import { SCard, SCardInfo, SCardTitle, SCardBg } from "./App.styles";
+import {
+  SCardImgBody,
+  SCard,
+  SCardInfo,
+  SCardTitle,
+  SCardBg,
+} from "./Card.styles";
 import { ICard } from "./tcgTypes/card";
 
 function Card({ card }: { card: ICard }) {
@@ -14,12 +20,12 @@ function Card({ card }: { card: ICard }) {
           />
         </div>
         <div className="card-name">{card.name}</div>
+        <div className="series-logo"></div>
       </SCardTitle>
-      <div className="img-container">
+      <SCardImgBody>
         <img src={card.images.small} />
-      </div>
+      </SCardImgBody>
       <SCardInfo>
-        <div className="flavor-text">{card.flavorText}</div>
         <div>Types: {card.subtypes.join(", ")}</div>
       </SCardInfo>
     </SCard>

@@ -25,3 +25,17 @@ export const SUBTYPES = [
   "V",
   "VMAX",
 ];
+
+export const TYPES = [
+  "Colorless",
+  "Darkness",
+  "Dragon",
+  "Fairy",
+  "Fighting",
+  "Fire",
+  "Grass",
+  "Lightning",
+  "Metal",
+  "Psychic",
+  "Water",
+];

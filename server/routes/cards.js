@@ -6,7 +6,7 @@ const buildQuery = (queries) => {
   const { name, subtype } = queries;
   let query = ``;
   if (name) {
-    query += `name:${name}`;
+    query += `name:"${name}"`;
   }
   if (subtype) {
     query += ` subtypes:${subtype}`;
