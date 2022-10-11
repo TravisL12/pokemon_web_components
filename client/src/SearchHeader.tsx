@@ -15,7 +15,7 @@ const SearchHeader = ({
   const [nameQuery, setNameQuery] = useState<string>("arceus");
 
   useEffect(() => {
-    fetchCards({ nameQuery, subtypeQuery });
+    fetchCards({ nameQuery });
   }, []);
 
   return (
@@ -75,9 +75,7 @@ const SearchHeader = ({
           </div>
         </SSearch>
       </div>
-      <button onClick={() => fetchCards({ nameQuery, subtypeQuery })}>
-        Get card!
-      </button>
+      <button onClick={() => fetchCards({ nameQuery })}>Get card!</button>
       <div>{loading ? "Loading..." : `Found ${cards.length}`}</div>
     </SSearchHeader>
   );

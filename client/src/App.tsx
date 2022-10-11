@@ -12,10 +12,16 @@ function App() {
   const [subtypeQuery, setSubtypeQuery] = useState<any>({});
   const [typeQuery, setTypeQuery] = useState<any>({});
 
-  const fetchCards = async ({ nameQuery, subtypeQuery }: any) => {
+  const fetchCards = async ({ nameQuery }: any) => {
     setLoading(true);
+    const subtypes = Object.keys(subtypeQuery).filter(
+      (subtype) => subtypeQuery[subtype]
+    );
+    const types = Object.keys(typeQuery).filter(
+      (subtype) => typeQuery[subtype]
+    );
     const req = await axios.get(`http://0.0.0.0:1212/cards`, {
-      params: { name: nameQuery },
+      params: { name: nameQuery, subtypes, types },
     });
     setLoading(false);
     if (req.data.results) {

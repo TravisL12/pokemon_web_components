@@ -3,13 +3,21 @@ const { findCardsByQueries } = require("pokemon-tcg-sdk-typescript/dist/sdk");
 var router = express.Router();
 
 const buildQuery = (queries) => {
-  const { name, subtype } = queries;
+  const { name, subtypes, types } = queries;
   let query = ``;
+
   if (name) {
     query += `name:"${name}"`;
   }
-  if (subtype) {
-    query += ` subtypes:${subtype}`;
+
+  if (subtypes) {
+    const subQuery = subtypes.map((s) => `subtypes:"${s}"`);
+    query += ` (${subQuery.join(" OR ")})`;
+  }
+
+  if (types) {
+    const typeQuery = types.map((s) => `types:"${s}"`);
+    query += ` (${typeQuery.join(" OR ")})`;
   }
   return query;
 };

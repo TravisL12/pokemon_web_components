@@ -26,7 +26,8 @@ function Card({ card }: { card: ICard }) {
         <img src={card.images.small} />
       </SCardImgBody>
       <SCardInfo>
-        <div>Types: {card.subtypes.join(", ")}</div>
+        <div>Types: {card.types?.join(", ")}</div>
+        <div>Sub-types: {card.subtypes.join(", ")}</div>
       </SCardInfo>
     </SCard>
   );
