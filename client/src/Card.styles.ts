@@ -75,3 +75,20 @@ export const SCardImgBody = styled.div`
     max-width: 100%;
   }
 `;
+
+export const SDetailContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 50px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+`;
+
+export const SDetailInner = styled.div`
+  background: lightblue;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+`;

@@ -5,12 +5,14 @@ import { SCardList } from "./App.styles";
 import { ICard } from "./tcgTypes/card";
 import Card from "./Card";
 import SearchHeader from "./SearchHeader";
+import CardDetailModal from "./CardDetailModal";
 
 function App() {
   const [cards, setCards] = useState<ICard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [subtypeQuery, setSubtypeQuery] = useState<any>({});
   const [typeQuery, setTypeQuery] = useState<any>({});
+  const [selected, setSelected] = useState<any>();
 
   const fetchCards = async ({ nameQuery }: any) => {
     setLoading(true);
@@ -53,8 +55,11 @@ function App() {
       {cards.length > 0 && (
         <SCardList>
           {cards.map((card) => {
-            return <Card key={card.id} card={card} />;
+            return <Card key={card.id} card={card} setSelected={setSelected} />;
           })}
+          {selected && (
+            <CardDetailModal card={selected} setSelected={setSelected} />
+          )}
         </SCardList>
       )}
     </div>

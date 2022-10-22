@@ -21,7 +21,7 @@ export const SSearch = styled.div`
 
 export const SCheckboxContainer = styled.div`
   overflow: auto;
-  background: lightblue;
+  background: #cdeffa;
   height: 100%;
   width: 300px;
 
@@ -31,7 +31,7 @@ export const SCheckboxContainer = styled.div`
     padding: 2px 15px 2px 5px;
 
     &:nth-child(odd) {
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.5);
     }
   }
 `;

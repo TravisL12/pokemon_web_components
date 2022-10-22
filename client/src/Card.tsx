@@ -7,7 +7,13 @@ import {
 } from "./Card.styles";
 import { ICard } from "./tcgTypes/card";
 
-function Card({ card }: { card: ICard }) {
+function Card({
+  card,
+  setSelected,
+}: {
+  card: ICard;
+  setSelected: (val: any) => void;
+}) {
   return (
     <SCard bgUrl={card.images.small}>
       <SCardBg bgUrl={card.images.small}></SCardBg>
@@ -19,7 +25,14 @@ function Card({ card }: { card: ICard }) {
             src={card.set.images.logo}
           />
         </div>
-        <div className="card-name">{card.name}</div>
+        <div
+          className="card-name"
+          onClick={() => {
+            setSelected(card);
+          }}
+        >
+          {card.name}
+        </div>
         <div className="series-logo"></div>
       </SCardTitle>
       <SCardImgBody>
